@@ -1,0 +1,234 @@
+body {
+  /* font-family: 'Arial', sans-serif; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+.main-content {
+  margin: 30px;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  background-color: #5C6ED0;
+
+  color: white;
+  padding: 20px;
+
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-select {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+
+  width: 100%;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+}
+
+.menu-select:hover {
+  background-color: #7D8BD9;
+}
+
+.menu-select.active {
+  background-color: #7D8BD9;
+}
+
+.menu-image {
+  padding: 15px;
+}
+
+.menu-item {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+
+  padding: 10px 20px;
+}
+
+.user {
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 300px;
+  padding: 15px;
+}
+
+.username {
+  font-size: 18px;
+}
+
+.logout-button {
+  font-size: 16px;
+  color: #FFF;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 10px;
+
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #98A9F0;
+}
+.filter-table-header{
+  display:flex;
+  justify-content: space-between;
+}
+.filter {
+  display: flex;
+  width: 60%;
+  border: 2px solid #E5E5E5;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #F8FCFF;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  padding: 20px 40px 30px 40px;
+  gap: 30px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter input,
+.filter select {
+  padding: 5px;
+  font-size: 15px;
+  color: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #E5E5E5;
+  border-radius: 5px;
+  text-align: center;
+}
+
+table th {
+  color: #999;
+  padding: 15px;
+  border-bottom: 2px solid #E5E5E5;
+  background-color: #F8FCFF;
+}
+
+table td {
+  color: #555;
+  padding: 15px;
+  border-bottom: 2px solid #E5E5E5;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.approved {
+  color: #576FD7;
+}
+
+.rejected {
+  color: #EB5A5A;
+}
+
+.stanby {
+  color:#999999;
+}
+
+.selled {
+  color: #999999;
+}
+
+.selling {
+  color: #67a238;
+}
+
+.beforesell {
+  color: #576fd7;
+}
+
+.selldeny {
+  color: #EB5A5A;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.pagination button {
+  font-size: 20px;
+  color: #555;
+
+  border: 0px;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 0 5px;
+
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  color: #576FD7;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.table-header .btn {
+  width:112px;
+  height:36px;
+  margin-top: 114px;
+  margin-left: 10px;
+  padding: 10px 0;
+  border : none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.table-header .btn.approve {
+  background-color: #576fd7;
+  color: white;
+}
+
+.table-header .btn.reject {
+  background-color: white;
+  color: #7e7e7e;
+  border: 1px solid #576fd7; /* 추가된 border */
+  opacity: 1; /* opacity 조정 */
+}

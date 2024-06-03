@@ -1,0 +1,76 @@
+/* EventForm.css */
+.event-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+    .event-form-explain {
+    display: flex;
+    align-items: top;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .label {
+    margin-right: 20px;
+    margin-left: 80px;
+  }
+  .label-fit {
+    margin-right: 20px;
+    margin-left: 80px;
+    white-space: nowrap;
+  }
+  .label-middle {
+    margin-right: 20px;
+    margin-left: 50px;
+  }
+  
+  .input-large {
+    flex: 1;
+    margin-right: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+  
+  .text-display {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+  }
+  .text-display-fit {
+    display: inline-block;
+    padding: 8px 20px; /* 좌우 여백 추가 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 함 */
+  }
+  .text-display-explain{
+    flex: 2;
+    padding: 16px 20px; /* 좌우 여백 추가 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    white-space: pre-line;
+  }
+  .text-display-explain2 {
+    flex: 2;
+    padding: 16px 20px; /* 좌우 여백 추가 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    white-space: pre-line;
+    height: 480px; /* 높이 고정 */
+    max-height: 480px; /* 최대 높이 고정 */
+    resize: none; /* 크기 조정 불가 */
+}
+  .text-style{
+    margin-left:10px;
+    margin-right:10px;
+  }
+  
