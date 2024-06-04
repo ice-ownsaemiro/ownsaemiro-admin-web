@@ -2,18 +2,14 @@
 .start-button {
   margin-bottom: 100px;
   z-index: 10;
-
-  width: 180px;
-  height: 50px;
+  display: flex;
   font-size: 22px;
   font-weight: bold;
-
   color: white;
   background-color: transparent;
   border: 2px solid;
   padding: 8px 10px;
   border-radius: 15px;
-
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -35,7 +31,15 @@
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
+.manager-page{
+  padding: 5px 25px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #576FD7;
+  font-weight: bold;
+  transition: background-color 0.5s, color 0.5s;
+}
 /* 판매자, 관리자 선택 버튼 */
 .type-select {
   padding: 5px 25px;

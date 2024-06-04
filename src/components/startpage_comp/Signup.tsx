@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import styled from "styled-components";
-
-import '../css/Signup.css';
-import logo from '../assets/logo_login.svg'
-import check from '../assets/logo_check.svg';
-import error from '../assets/logo_error.svg';
+import '../../css/Signup.css';
+import logo from '../../assets/logo_login.svg'
+import check from '../../assets/logo_check.svg';
+import error from '../../assets/logo_error.svg';
 
 function Signup(){
   /* 판매자 회원가입을 위한 useState */

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from 'axios';
 
-import '../css/Signup.css';
-import logo from '../assets/logo_login.svg'
-import error from '../assets/logo_error.svg';
+import '../../css/Signup.css';
+import logo from '../../assets/logo_login.svg'
+import error from '../../assets/logo_error.svg';
 
 function FindPW(){
   /* 판매자 비밀번호 찾기 위한 useState */

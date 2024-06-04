@@ -8,7 +8,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-40%, -50%)",
-  maxWidth: "1400px",
+  maxWidth: "60vw",
   maxHeight: "880px",
   width: "80vw",
   height: "70vh",

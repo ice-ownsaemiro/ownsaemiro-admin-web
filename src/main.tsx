@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import axios from 'axios';
 
-axios.defaults.baseURL = "http://api"
+axios.defaults.baseURL = "https://capston.dev-changseop.site"
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>

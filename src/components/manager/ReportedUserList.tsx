@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../css/MainPage.css";
 import ReportedModal from "./Modal/ReportedModal";
+import search_logo from "../../assets/logo_search.svg";
 import { ReportUserData } from "./Data/ReportingUserData";
 
 function ReportedUserList() {
@@ -42,10 +43,7 @@ function ReportedUserList() {
   useEffect(() => {
     if (selectAll) {
       const newSelectedItems = [
-        ...new Set([
-          ...selectedItems,
-          ...currentItems.map((item) => item.id)
-        ])
+        ...new Set([...selectedItems, ...currentItems.map((item) => item.id)]),
       ];
       setSelectedItems(newSelectedItems);
     } else {
@@ -57,7 +55,10 @@ function ReportedUserList() {
   }, [selectAll, currentPage]);
 
   // Start page for pagination display
-  const startPage = Math.max(1, Math.min(currentPage - Math.floor(10 / 2), totalPages - 9));
+  const startPage = Math.max(
+    1,
+    Math.min(currentPage - Math.floor(10 / 2), totalPages - 9)
+  );
   const endPage = Math.min(totalPages, startPage + 9);
 
   const handleSelectAll = () => {
@@ -92,25 +93,38 @@ function ReportedUserList() {
     <main className="main-content">
       <h1 style={{ color: "#555" }}>사용자 신고 목록</h1>
       <div className="filter-table-header">
-        <div className="filter">
+      <div className="filter">
           <div className="filter-item">
             <div
-              style={{ color: "#999", fontWeight: "bold", marginBottom: "5px" }}
+              style={{
+                color: "#999",
+                fontWeight: "bold",
+                marginBottom: "5px",
+                width: "30vw",
+              }}
             >
               검색
             </div>
-            <input
-              type="text"
-              style={{ border: "2px solid #E5E5E5", borderRadius: "5px" }}
-            />
+            <div className="search-bar">
+              <img className="fa-search" src={search_logo}></img>
+              <input
+                className="search-bar__input"
+                type="search"
+                placeholder="검색"
+              />
+            </div>
           </div>
         </div>
         <div className="table-header">
-          <button className="btn approve" onClick={handleBanUsers}>사용자 정지</button>
-          <button className="btn reject" onClick={handleDeleteReports}>삭제 하기</button>
+          <button className="btn approve" onClick={handleBanUsers}>
+            사용자 정지
+          </button>
+          <button className="btn reject" onClick={handleDeleteReports}>
+            삭제 하기
+          </button>
         </div>
       </div>
-      <table style={{ borderRadius: "5px" }}>
+      <table style={{ borderRadius: "5px", width: "70vw" }}>
         <thead>
           <tr>
             <th>
@@ -162,27 +176,32 @@ function ReportedUserList() {
         </tbody>
       </table>
       <div className="pagination">
-        <button 
-          onClick={() => handlePageChange(currentPage - 1)} 
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          style={{ color: '#555555' }}
+          style={{ color: "#555555" }}
         >
           &lt;
         </button>
-        {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((pageNumber) => (
+        {Array.from(
+          { length: endPage - startPage + 1 },
+          (_, i) => startPage + i
+        ).map((pageNumber) => (
           <button
             key={pageNumber}
             onClick={() => handlePageChange(pageNumber)}
             disabled={currentPage === pageNumber}
-            style={{ color: currentPage === pageNumber ? '#576FD7' : '#555555' }}
+            style={{
+              color: currentPage === pageNumber ? "#576FD7" : "#555555",
+            }}
           >
             {pageNumber}
           </button>
         ))}
-        <button 
-          onClick={() => handlePageChange(currentPage + 1)} 
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          style={{ color: '#555555' }}
+          style={{ color: "#555555" }}
         >
           &gt;
         </button>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../css/MainPage.css";
 import EventModal from "./Modal/EventModal";
+import search_logo from "../../assets/logo_search.svg";
 import { RequestData } from "./Data/RequestData";
+import { Image } from "react-bootstrap";
 
 function EventRequestList() {
   const [data, setData] = useState(RequestData);
@@ -45,10 +47,7 @@ function EventRequestList() {
   useEffect(() => {
     if (selectAll) {
       const newSelectedItems = [
-        ...new Set([
-          ...selectedItems,
-          ...currentItems.map((item) => item.id)
-        ])
+        ...new Set([...selectedItems, ...currentItems.map((item) => item.id)]),
       ];
       setSelectedItems(newSelectedItems);
     } else {
@@ -101,23 +100,29 @@ function EventRequestList() {
   };
 
   return (
-    <main
-      key={`${selectedStatus}-${currentPage}`}
-      className="main-content"
-    >
+    <main key={`${selectedStatus}-${currentPage}`} className="main-content">
       <h1 style={{ color: "#555" }}>행사 등록 요청 목록</h1>
       <div className="filter-table-header">
         <div className="filter">
           <div className="filter-item">
             <div
-              style={{ color: "#999", fontWeight: "bold", marginBottom: "5px" }}
+              style={{
+                color: "#999",
+                fontWeight: "bold",
+                marginBottom: "5px",
+                width: "30vw",
+              }}
             >
               검색
             </div>
-            <input
-              type="text"
-              style={{ border: "2px solid #E5E5E5", borderRadius: "5px" }}
-            />
+            <div className="search-bar">
+              <img className="fa-search" src={search_logo}></img>
+              <input
+                className="search-bar__input"
+                type="search"
+                placeholder="검색"
+              />
+            </div>
           </div>
           <div className="filter-item">
             <div
@@ -138,11 +143,15 @@ function EventRequestList() {
           </div>
         </div>
         <div className="table-header">
-          <button className="btn approve" onClick={handleApprove}>승인</button>
-          <button className="btn reject" onClick={handleReject}>승인 거절</button>
+          <button className="btn approve" onClick={handleApprove}>
+            승인
+          </button>
+          <button className="btn reject" onClick={handleReject}>
+            승인 거절
+          </button>
         </div>
       </div>
-      <table style={{ borderRadius: "5px" }}>
+      <table style={{ borderRadius: "5px", width: "70vw" }}>
         <thead>
           <tr>
             <th>
@@ -210,7 +219,10 @@ function EventRequestList() {
             key={pageNumber}
             onClick={() => handlePageChange(pageNumber)}
             disabled={currentPage === pageNumber}
-            style={{ color: currentPage === pageNumber ? "#576FD7" : "#555555" }}
+            style={{
+              color: currentPage === pageNumber ? "#576FD7" : "#555555",
+              textDecoration: currentPage === pageNumber ? "underline" : " ",
+            }}
           >
             {pageNumber}
           </button>
