@@ -1,3 +1,3 @@
 export default interface UserNicknameState {
-  nickname: String;
+  nickname: string;
 }

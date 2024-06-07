@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body, html {
         font-family: 'Pretendard-Regular', sans-serif;
-        background-color: #e2e9f0;
+        background-color: #ffffff;
         font-weight: 400,
         margin: 0;
         font-size: 16px;

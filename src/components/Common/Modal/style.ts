@@ -14,44 +14,36 @@ export const ModalOverlay = styled.div`
 
 export const ModalContent = styled.div`
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 800px;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-`;
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 `;
 
-export const DateRangeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+export const Info = styled.div`
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f1f3f5;
 `;
 
-export const AdditionalInfoContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
-
-export const ExplainContainer = styled.div`
-  margin-top: 15px;
+export const Description = styled.div`
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 
 export const ButtonContainer = styled.div`
@@ -61,7 +53,7 @@ export const ButtonContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const SaveButton = styled.button`
+export const ClosedButton = styled.button`
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -74,51 +66,9 @@ export const SaveButton = styled.button`
   }
 `;
 
-export const ClosedButton = styled.button`
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #ffffff;
-  border: 1px solid #576fd7;
-  color: black;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-export const Input = styled.input`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-export const Textarea = styled.textarea`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-export const Label = styled.label`
+export const Label = styled.div`
   font-weight: bold;
+  font-size: 14px;
+  color: #555;
   margin-bottom: 5px;
-`;
-
-export const Select = styled.select`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-export const TimeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
 `;
