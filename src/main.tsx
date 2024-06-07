@@ -1,15 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
-import axios from 'axios';
+import ReactDOM from "react-dom/client";
+import { RecoilRoot } from "recoil";
+import App from "./App";
+import { GlobalStyle } from "./style";
 
-axios.defaults.baseURL = "https://capston.dev-changseop.site"
-ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <>
+    <RecoilRoot>
+      <GlobalStyle />
       <App />
-    </React.StrictMode>
-  </BrowserRouter>,
-  document.getElementById('root')
+    </RecoilRoot>
+  </>
 );
