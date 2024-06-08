@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const accessToken = Cookies.get("accessToken");
+const accessToken = Cookies.get("access_token");
 const serverUrl = import.meta.env.VITE_APP_SERVER_URL;
 
 export const instance = axios.create({
