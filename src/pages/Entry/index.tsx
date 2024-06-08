@@ -20,6 +20,7 @@ export default function EntryPage() {
             <Styled.TitleTextLarge>온새미로</Styled.TitleTextLarge>
             <Styled.TitleTextSmall>OWNSAEMIRO</Styled.TitleTextSmall>
           </Styled.TitleFlexContainer>
+          <Styled.TitleTextMedium>관리자 페이지</Styled.TitleTextMedium>
         </Styled.TitleContainerWrapper>
         <div>
           <MiddleRectangle />

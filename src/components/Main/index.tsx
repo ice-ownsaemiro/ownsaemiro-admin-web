@@ -60,21 +60,6 @@ export default function MainPage() {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await searchRegisterEvent(
-        currentPage,
-        itemsPerPage,
-        searchKeyword,
-        selectedStatus
-      );
-      setData(response.data.events);
-      setTotalPage(response.data.totalPages);
-    };
-
-    fetchData();
-  }, [currentPage, searchKeyword, selectedStatus]);
-
   const handleOpen = (id: number) => {
     setId(id);
     setOpen(true);
@@ -160,9 +145,26 @@ export default function MainPage() {
     setSelectAll(false);
   };
 
-  const handleSearch = () => {
-    setCurrentPage(1);
+  const fetchData = async () => {
+    let url = `/api/admin/register?page=${currentPage}&size=${itemsPerPage}`;
+
+    if (selectedStatus !== "전체") {
+      url += `&state=${selectedStatus}`;
+    }
+
+    if (searchKeyword) {
+      url += `&name=${searchKeyword}`;
+    }
+
+    const result = await instance.get(url);
+
+    setData(result.data.data.event_request);
+    setTotalPage(result.data.data.page_info.total_page);
   };
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage, selectedStatus, searchKeyword]);
 
   return (
     <Styled.Container>
@@ -231,7 +233,6 @@ export default function MainPage() {
                   />
                 </Styled.SearchBar>
               </Styled.FilterItem>
-              <Styled.Button onClick={handleSearch}>검색</Styled.Button>
             </Styled.Filter>
             <Styled.TableHeader>
               <Styled.ApprovedBtn onClick={handleApprove}>
@@ -258,32 +259,40 @@ export default function MainPage() {
               </tr>
             </thead>
             <tbody>
-              {data.map((item) => (
-                <Styled.Tr
-                  key={item.id}
-                  onClick={() => handleOpen(item.id)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <Styled.Td onClick={(e) => e.stopPropagation()}>
-                    <input
-                      type="checkbox"
-                      checked={selectedItems.includes(item.id)}
-                      onChange={() => handleSelectItem(item.id)}
-                    />
+              {data.length === 0 ? (
+                <tr>
+                  <Styled.Td colSpan={7} style={{ textAlign: "center" }}>
+                    등록된 요청이 없습니다.
                   </Styled.Td>
-                  <Styled.Td>{item.host_name}</Styled.Td>
-                  <Styled.Td>{item.name}</Styled.Td>
-                  <Styled.Td>{item.apply_date}</Styled.Td>
-                  <Styled.Td>{item.duration}</Styled.Td>
-                  <Styled.Td state={item.state}>
-                    {item.state === "WAITING"
-                      ? "승인 대기"
-                      : item.state === "COMPLETE"
-                        ? "승인 허가"
-                        : "승인 거절"}
-                  </Styled.Td>
-                </Styled.Tr>
-              ))}
+                </tr>
+              ) : (
+                data.map((item) => (
+                  <Styled.Tr
+                    key={item.id}
+                    onClick={() => handleOpen(item.id)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Styled.Td onClick={(e) => e.stopPropagation()}>
+                      <input
+                        type="checkbox"
+                        checked={selectedItems.includes(item.id)}
+                        onChange={() => handleSelectItem(item.id)}
+                      />
+                    </Styled.Td>
+                    <Styled.Td>{item.host_name}</Styled.Td>
+                    <Styled.Td>{item.name}</Styled.Td>
+                    <Styled.Td>{item.apply_date}</Styled.Td>
+                    <Styled.Td>{item.duration}</Styled.Td>
+                    <Styled.Td state={item.state}>
+                      {item.state === "WAITING"
+                        ? "승인 대기"
+                        : item.state === "COMPLETE"
+                          ? "승인 허가"
+                          : "승인 거절"}
+                    </Styled.Td>
+                  </Styled.Tr>
+                ))
+              )}
             </tbody>
           </Styled.Table>
           <Styled.Pagination>
