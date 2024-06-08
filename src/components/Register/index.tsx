@@ -48,7 +48,7 @@ export default function Signup() {
           password: password,
           phone_number: phoneNumber,
           nickname: nickname,
-          role: "SELLER",
+          role: "ADMIN",
         });
 
         if ((response.status = 200)) {
