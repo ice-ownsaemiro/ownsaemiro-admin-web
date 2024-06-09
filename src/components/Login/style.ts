@@ -102,7 +102,7 @@ export const RegisterButton = styled.button`
   background-color: transparent;
   border: 0px;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 13px;
   color: #999;
   font-weight: bold;
   display: flex;
